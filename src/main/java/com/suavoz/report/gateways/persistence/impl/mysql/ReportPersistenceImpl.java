@@ -5,10 +5,12 @@ import com.suavoz.report.gateways.persistence.ReportPersistenceGateway;
 import com.suavoz.report.gateways.persistence.impl.mysql.entities.ReportEntity;
 import com.suavoz.report.gateways.persistence.impl.mysql.repository.MySqlRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 @RequiredArgsConstructor
 public class ReportPersistenceImpl implements ReportPersistenceGateway {
 

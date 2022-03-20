@@ -11,4 +11,6 @@ public interface ReportPersistenceGateway {
     void delete(Report report);
 
     List<Report> findAll();
+
+    boolean existsById(Long id);
 }

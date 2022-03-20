@@ -12,17 +12,17 @@ public class ReportResponse {
 
     private Long id;
     private String description;
-    private AgeGroup ageGroup;
-    private Genre genre;
-    private ViolenceType violenceType;
-    private Zone zone;
+    private AgeGroupResponse ageGroup;
+    private GenreResponse genre;
+    private ViolenceTypeResponse violenceType;
+    private ZoneResponse zone;
 
     public ReportResponse(Report report) {
         id = report.getId();
         description = report.getDescription();
-        ageGroup = getAgeGroup();
-        genre = getGenre();
-        violenceType = getViolenceType();
-        zone = getZone();
+        ageGroup = new AgeGroupResponse(report.getAgeGroup());
+        genre = new GenreResponse(report.getGenre());
+        violenceType = new ViolenceTypeResponse(report.getViolenceType());
+        zone = new ZoneResponse(report.getZone());
     }
 }

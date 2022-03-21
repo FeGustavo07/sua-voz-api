@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "TB_AGE_GROUP")
 @NoArgsConstructor
 public class AgeGroupEntity {
 
@@ -37,6 +37,7 @@ public class AgeGroupEntity {
         return AgeGroup.builder()
                 .id(id)
                 .ages(ages)
+                //.reports(reportEntities.stream().map(ReportEntity::toDomain).collect(Collectors.toList()))
                 .build();
     }
 }

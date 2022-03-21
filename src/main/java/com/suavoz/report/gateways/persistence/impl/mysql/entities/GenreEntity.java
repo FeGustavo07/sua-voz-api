@@ -1,13 +1,17 @@
 package com.suavoz.report.gateways.persistence.impl.mysql.entities;
 
 import com.suavoz.report.domain.Genre;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
+@Setter
 @Entity
 @Table
 @NoArgsConstructor
@@ -31,6 +35,7 @@ public class GenreEntity {
         return Genre.builder()
                 .id(id)
                 .name(name)
+                //.reports(reportEntities.stream().map(ReportEntity::toDomain).collect(Collectors.toList()))
                 .build();
     }
 }

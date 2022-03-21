@@ -10,37 +10,30 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "TB_REPORT")
 @NoArgsConstructor
 public class ReportEntity {
-
-    //TODO Verificar relacionameto das tabelas
-    //produtos
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "DESCRIPTION")
     private String description;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name = "ID_AGE_GROUP", referencedColumnName = "id")
-//    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST )
+    @JoinColumn(name = "ID_AGE_GROUP", referencedColumnName = "ID")
     private AgeGroupEntity ageGroup;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name = "ID_GENRE", referencedColumnName = "id")
-//    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_GENRE", referencedColumnName = "ID")
     private GenreEntity genre;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name = "ID_VIOLENCE_TYPE", referencedColumnName = "id")
-//    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "ID_VIOLENCE_TYPE", referencedColumnName = "ID")
     private ViolenceTypeEntity violenceType;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name = "ID_ZONE", referencedColumnName = "id")
-//    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "ID_ZONE ", referencedColumnName = "ID")
     private ZoneEntity zone;
 
     public ReportEntity(Report report){
@@ -56,7 +49,7 @@ public class ReportEntity {
         return Report.builder()
                 .id(id)
                 .description(description)
-                .violenceType(violenceType.toDomain())
+                .violenceType(violenceType.toDomain(false))
                 .ageGroup(ageGroup.toDomain())
                 .genre(genre.toDomain())
                 .zone(zone.toDomain())

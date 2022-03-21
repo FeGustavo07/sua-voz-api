@@ -20,19 +20,19 @@ public class ReportEntity {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ID_AGE_GROUP", referencedColumnName = "ID")
     private AgeGroupEntity ageGroup;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ID_GENRE", referencedColumnName = "ID")
     private GenreEntity genre;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ID_VIOLENCE_TYPE", referencedColumnName = "ID")
     private ViolenceTypeEntity violenceType;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ID_ZONE ", referencedColumnName = "ID")
     private ZoneEntity zone;
 

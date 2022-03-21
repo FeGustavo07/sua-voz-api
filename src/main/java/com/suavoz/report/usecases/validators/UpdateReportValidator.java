@@ -19,12 +19,14 @@ public class UpdateReportValidator {
         boolean existsReport = reportPersistenceGateway.existsById(report.getId());
 
         if (!existsReport) {
-            validationErrors.add("Report não existe");
+            validationErrors.add("Report doesn't exists");
         }
 
         if (report.getId() == null) {
-            validationErrors.add("Id não pode ser nulo");
+            validationErrors.add("Id is null");
         }
+
+        GenericValidator.validations(report, validationErrors);
 
         return validationErrors;
     }

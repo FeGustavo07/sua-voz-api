@@ -29,10 +29,10 @@ public class ReportPersistenceImpl implements ReportPersistenceGateway {
     }
 
     private void setEntityProps(Report report, ReportEntity entity) {
-        GenreEntity genre = genreRepository.findById(report.getGenre().getId()).orElse(entity.getGenre());
-        AgeGroupEntity ageGroup = ageGroupRepository.findById(report.getAgeGroup().getId()).orElse(entity.getAgeGroup());
-        ZoneEntity zone = zoneRepository.findById(report.getZone().getId()).orElse(entity.getZone());
-        ViolenceTypeEntity violenceType = violenceTypeRepository.findById(report.getViolenceType().getId()).orElse(entity.getViolenceType());
+        GenreEntity genre = report.getGenre().getId() != null ? genreRepository.findById(report.getGenre().getId()).orElse(entity.getGenre()) : entity.getGenre();
+        AgeGroupEntity ageGroup = report.getAgeGroup().getId() != null ? ageGroupRepository.findById(report.getAgeGroup().getId()).orElse(entity.getAgeGroup()) : entity.getAgeGroup();
+        ZoneEntity zone = report.getZone().getId() != null ? zoneRepository.findById(report.getZone().getId()).orElse(entity.getZone()) : entity.getZone();
+        ViolenceTypeEntity violenceType = report.getViolenceType().getId() != null ? violenceTypeRepository.findById(report.getViolenceType().getId()).orElse(entity.getViolenceType()) : entity.getViolenceType();
         entity.setGenre(genre);
         entity.setAgeGroup(ageGroup);
         entity.setZone(zone);

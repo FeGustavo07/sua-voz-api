@@ -14,14 +14,14 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "TB_GENRE")
 @NoArgsConstructor
 public class GenreEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column()
+    @Column(name = "NAME")
     private String name;
 
     @OneToMany(mappedBy = "genre")

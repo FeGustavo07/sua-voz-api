@@ -22,7 +22,7 @@ public class AgeGroupEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "AGES")
     private String ages;
 
     @OneToMany(mappedBy = "ageGroup")

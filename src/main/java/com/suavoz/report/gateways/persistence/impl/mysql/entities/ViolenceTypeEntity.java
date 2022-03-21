@@ -5,6 +5,9 @@ import com.suavoz.report.domain.ViolenceType;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table
@@ -17,6 +20,9 @@ public class ViolenceTypeEntity {
 
     @Column
     private String type;
+
+    @OneToMany(mappedBy = "violenceType")
+    private List<ReportEntity> reportEntities = new ArrayList<>();
 
     public ViolenceTypeEntity(ViolenceType violenceType) {
         id = violenceType.getId();

@@ -1,5 +1,6 @@
 package com.suavoz.report.gateways.persistence.impl.mysql.entities;
 
+import com.suavoz.report.domain.Report;
 import com.suavoz.report.domain.Zone;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,11 +33,13 @@ public class ZoneEntity {
         name = zone.getName();
     }
 
-    public Zone toDomain() {
+    public Zone toDomain(boolean loadReports) {
+        List<Report> reports = loadReports ? reportEntities.stream().map(ReportEntity::toDomain)
+                .collect(Collectors.toList()) : List.of();
         return Zone.builder()
                 .id(id)
                 .name(name)
-                //.reports(reportEntities.stream().map(ReportEntity::toDomain).collect(Collectors.toList()))
+                .reports(reports)
                 .build();
     }
 }

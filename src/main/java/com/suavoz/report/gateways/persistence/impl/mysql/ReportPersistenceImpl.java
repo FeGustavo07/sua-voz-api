@@ -2,10 +2,8 @@ package com.suavoz.report.gateways.persistence.impl.mysql;
 
 import com.suavoz.report.domain.Report;
 import com.suavoz.report.gateways.persistence.ReportPersistenceGateway;
-import com.suavoz.report.gateways.persistence.impl.mysql.entities.GenreEntity;
-import com.suavoz.report.gateways.persistence.impl.mysql.entities.ReportEntity;
-import com.suavoz.report.gateways.persistence.impl.mysql.repository.GenreRepository;
-import com.suavoz.report.gateways.persistence.impl.mysql.repository.ReportRepository;
+import com.suavoz.report.gateways.persistence.impl.mysql.entities.*;
+import com.suavoz.report.gateways.persistence.impl.mysql.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,14 +16,27 @@ public class ReportPersistenceImpl implements ReportPersistenceGateway {
 
     private final ReportRepository reportRepository;
     private final GenreRepository genreRepository;
+    private final ZoneRepository zoneRepository;
+    private final ViolenceTypeRepository violenceTypeRepository;
+    private final AgeGroupRepository ageGroupRepository;
 
     @Override
     public Report save(Report report) {
         ReportEntity entity = new ReportEntity(report);
-        GenreEntity genre = genreRepository.findById(report.getGenre().getId()).orElse(entity.getGenre());
-        entity.setGenre(genre);
+        setEntityProps(report, entity);
         ReportEntity reportEntity = reportRepository.save(entity);
         return reportEntity.toDomain();
+    }
+
+    private void setEntityProps(Report report, ReportEntity entity) {
+        GenreEntity genre = genreRepository.findById(report.getGenre().getId()).orElse(entity.getGenre());
+        AgeGroupEntity ageGroup = ageGroupRepository.findById(report.getAgeGroup().getId()).orElse(entity.getAgeGroup());
+        ZoneEntity zone = zoneRepository.findById(report.getZone().getId()).orElse(entity.getZone());
+        ViolenceTypeEntity violenceType = violenceTypeRepository.findById(report.getViolenceType().getId()).orElse(entity.getViolenceType());
+        entity.setGenre(genre);
+        entity.setAgeGroup(ageGroup);
+        entity.setZone(zone);
+        entity.setViolenceType(violenceType);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.suavoz.report.gateways.persistence.impl.mysql.entities;
 
 import com.suavoz.report.controller.requests.AgeGroupRequest;
 import com.suavoz.report.domain.AgeGroup;
+import com.suavoz.report.domain.Report;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,11 +34,13 @@ public class AgeGroupEntity {
     }
 
 
-    public AgeGroup toDomain() {
+    public AgeGroup toDomain(boolean loadReports) {
+        List<Report> reports = loadReports ? reportEntities.stream().map(ReportEntity::toDomain)
+                .collect(Collectors.toList()) : List.of();
         return AgeGroup.builder()
                 .id(id)
                 .ages(ages)
-                //.reports(reportEntities.stream().map(ReportEntity::toDomain).collect(Collectors.toList()))
+                .reports(reports)
                 .build();
     }
 }

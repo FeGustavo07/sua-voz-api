@@ -20,19 +20,19 @@ public class ReportEntity {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @ManyToOne(cascade = CascadeType.PERSIST )
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "ID_AGE_GROUP", referencedColumnName = "ID")
     private AgeGroupEntity ageGroup;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "ID_GENRE", referencedColumnName = "ID")
     private GenreEntity genre;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "ID_VIOLENCE_TYPE", referencedColumnName = "ID")
     private ViolenceTypeEntity violenceType;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "ID_ZONE ", referencedColumnName = "ID")
     private ZoneEntity zone;
 
@@ -46,13 +46,14 @@ public class ReportEntity {
     }
 
     public Report toDomain() {
+
         return Report.builder()
                 .id(id)
                 .description(description)
                 .violenceType(violenceType.toDomain(false))
-                .ageGroup(ageGroup.toDomain())
-                .genre(genre.toDomain())
-                .zone(zone.toDomain())
+                .ageGroup(ageGroup.toDomain(false))
+                .genre(genre.toDomain(false))
+                .zone(zone.toDomain(false))
                 .build();
     }
 }

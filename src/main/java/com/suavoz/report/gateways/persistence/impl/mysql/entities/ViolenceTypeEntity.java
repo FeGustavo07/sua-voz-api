@@ -34,7 +34,8 @@ public class ViolenceTypeEntity {
     }
 
     public ViolenceType toDomain(boolean loadReports) {
-        List<Report> reports = loadReports ? reportEntities.stream().map(ReportEntity::toDomain).collect(Collectors.toList()) : List.of();
+        List<Report> reports = loadReports ? reportEntities.stream().map(ReportEntity::toDomain)
+                .collect(Collectors.toList()) : List.of();
         return ViolenceType.builder()
                 .id(id)
                 .type(type)

@@ -1,6 +1,7 @@
 package com.suavoz.report.gateways.persistence.impl.mysql.entities;
 
 import com.suavoz.report.domain.Genre;
+import com.suavoz.report.domain.Report;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,11 +32,13 @@ public class GenreEntity {
         name = genre.getName();
     }
 
-    public Genre toDomain() {
+    public Genre toDomain(boolean loadReports) {
+        List<Report> reports = loadReports ? reportEntities.stream().map(ReportEntity::toDomain)
+                .collect(Collectors.toList()) : List.of();
         return Genre.builder()
                 .id(id)
                 .name(name)
-                //.reports(reportEntities.stream().map(ReportEntity::toDomain).collect(Collectors.toList()))
+                .reports(reports)
                 .build();
     }
 }

@@ -23,6 +23,6 @@ public class SwaggerConfiguration {
     }
 
     private ApiInfo buildApiInfo() {
-        return new ApiInfoBuilder().title("Reports API").description("API Sua Voz").build();
+        return new ApiInfoBuilder().title("Sua Voz API").description("Documentação da API").build();
     }
 }

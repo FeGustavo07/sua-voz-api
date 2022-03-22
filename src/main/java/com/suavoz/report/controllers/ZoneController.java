@@ -43,7 +43,7 @@ public class ZoneController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<ZoneResponse> listReports() {
+    public List<ZoneResponse> listZones() {
         List<Zone> zones = listZones.execute();
         return zones.stream().map(ZoneResponse::new).collect(Collectors.toList());
     }

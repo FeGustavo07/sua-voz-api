@@ -1,4 +1,4 @@
-package com.suavoz.report.controller.requests;
+package com.suavoz.report.controllers.requests;
 
 import com.suavoz.report.domain.Zone;
 import io.swagger.annotations.ApiModelProperty;
@@ -6,9 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter

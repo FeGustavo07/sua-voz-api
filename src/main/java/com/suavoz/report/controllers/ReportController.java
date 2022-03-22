@@ -1,12 +1,12 @@
-package com.suavoz.report.controller;
+package com.suavoz.report.controllers;
 
-import com.suavoz.report.controller.requests.ReportRequest;
-import com.suavoz.report.controller.responses.ReportResponse;
+import com.suavoz.report.controllers.requests.ReportRequest;
+import com.suavoz.report.controllers.responses.ReportResponse;
 import com.suavoz.report.domain.Report;
-import com.suavoz.report.usecases.reportUsecases.CreateReport;
-import com.suavoz.report.usecases.reportUsecases.DeleteReport;
-import com.suavoz.report.usecases.reportUsecases.ListReports;
-import com.suavoz.report.usecases.reportUsecases.UpdateReport;
+import com.suavoz.report.usecases.reportUseCases.CreateReport;
+import com.suavoz.report.usecases.reportUseCases.DeleteReport;
+import com.suavoz.report.usecases.reportUseCases.ListReports;
+import com.suavoz.report.usecases.reportUseCases.UpdateReport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

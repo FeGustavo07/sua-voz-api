@@ -1,0 +1,17 @@
+package com.suavoz.report.usecases.genreUseCases;
+
+import com.suavoz.report.domain.Genre;
+import com.suavoz.report.gateways.persistence.GenrePersistenceGateway;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class CreateGenre {
+
+    private final GenrePersistenceGateway genrePersistenceGateway;
+
+    public Genre execute(Genre genre) {
+        return genrePersistenceGateway.save(genre);
+    }
+}

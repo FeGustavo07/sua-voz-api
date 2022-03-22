@@ -1,6 +1,5 @@
 package com.suavoz.report.gateways.persistence.impl.mysql.entities;
 
-import com.suavoz.report.controller.requests.AgeGroupRequest;
 import com.suavoz.report.domain.AgeGroup;
 import com.suavoz.report.domain.Report;
 import lombok.Getter;

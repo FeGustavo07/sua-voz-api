@@ -2,7 +2,6 @@ package com.suavoz.report.gateways.persistence.impl.mysql;
 
 import com.suavoz.report.domain.Zone;
 import com.suavoz.report.gateways.persistence.ZonePersistenceGateway;
-import com.suavoz.report.gateways.persistence.impl.mysql.entities.ReportEntity;
 import com.suavoz.report.gateways.persistence.impl.mysql.entities.ZoneEntity;
 import com.suavoz.report.gateways.persistence.impl.mysql.repository.ZoneRepository;
 import lombok.RequiredArgsConstructor;

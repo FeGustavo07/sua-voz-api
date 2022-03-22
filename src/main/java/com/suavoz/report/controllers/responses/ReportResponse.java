@@ -1,4 +1,4 @@
-package com.suavoz.report.controller.responses;
+package com.suavoz.report.controllers.responses;
 
 import com.suavoz.report.domain.*;
 import lombok.Getter;

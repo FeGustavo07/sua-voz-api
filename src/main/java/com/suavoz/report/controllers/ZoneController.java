@@ -1,7 +1,7 @@
-package com.suavoz.report.controller;
+package com.suavoz.report.controllers;
 
-import com.suavoz.report.controller.requests.ZoneRequest;
-import com.suavoz.report.controller.responses.ZoneResponse;
+import com.suavoz.report.controllers.requests.ZoneRequest;
+import com.suavoz.report.controllers.responses.ZoneResponse;
 import com.suavoz.report.domain.Zone;
 import com.suavoz.report.usecases.zoneUseCases.CreateZone;
 import com.suavoz.report.usecases.zoneUseCases.DeleteZone;
@@ -44,8 +44,8 @@ public class ZoneController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<ZoneResponse> listReports() {
-        List<Zone> reports = listZones.execute();
-        return reports.stream().map(ZoneResponse::new).collect(Collectors.toList());
+        List<Zone> zones = listZones.execute();
+        return zones.stream().map(ZoneResponse::new).collect(Collectors.toList());
     }
 
     @DeleteMapping(path = "/{id}")

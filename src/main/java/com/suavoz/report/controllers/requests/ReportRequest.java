@@ -1,7 +1,6 @@
-package com.suavoz.report.controller.requests;
+package com.suavoz.report.controllers.requests;
 
 import com.suavoz.report.domain.*;
-import com.suavoz.report.gateways.persistence.impl.mysql.entities.AgeGroupEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

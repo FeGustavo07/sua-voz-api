@@ -1,4 +1,4 @@
-package com.suavoz.report.usecases.reportUsecases;
+package com.suavoz.report.usecases.reportUseCases;
 
 import com.suavoz.report.domain.Report;
 import com.suavoz.report.gateways.persistence.ReportPersistenceGateway;

@@ -1,12 +1,9 @@
-package com.suavoz.report.controller.responses;
+package com.suavoz.report.controllers.responses;
 
 import com.suavoz.report.domain.Genre;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter

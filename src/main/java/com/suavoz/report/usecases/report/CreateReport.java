@@ -3,7 +3,7 @@ package com.suavoz.report.usecases.report;
 import com.suavoz.report.domain.Report;
 import com.suavoz.report.exceptions.ValidationExecption;
 import com.suavoz.report.gateways.persistence.ReportPersistenceGateway;
-import com.suavoz.report.usecases.validators.CreateReportValidator;
+import com.suavoz.report.validators.reportValidator.CreateReportValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.springframework.stereotype.Service;

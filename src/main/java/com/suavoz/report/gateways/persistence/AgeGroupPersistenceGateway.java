@@ -11,4 +11,6 @@ public interface AgeGroupPersistenceGateway {
     void delete(AgeGroup ageGroup);
 
     List<AgeGroup> findAll();
+
+    boolean existsById(Long id);
 }

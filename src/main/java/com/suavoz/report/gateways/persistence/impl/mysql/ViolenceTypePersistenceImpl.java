@@ -32,4 +32,9 @@ public class ViolenceTypePersistenceImpl implements ViolenceTypePersistenceGatew
     public List<ViolenceType> findAll() {
         return violenceTypeRepository.findAll().stream().map(violenceType -> violenceType.toDomain(false)).collect(Collectors.toList());
     }
+
+    @Override
+    public boolean existsById(Long id) {
+        return violenceTypeRepository.existsById(id);
+    }
 }

@@ -35,6 +35,6 @@ public class ZonePersistenceImpl implements ZonePersistenceGateway {
 
     @Override
     public boolean existsById(Long id) {
-        return false;
+        return zoneRepository.existsById(id);
     }
 }

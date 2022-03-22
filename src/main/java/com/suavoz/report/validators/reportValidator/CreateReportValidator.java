@@ -1,4 +1,4 @@
-package com.suavoz.report.usecases.validators;
+package com.suavoz.report.validators.reportValidator;
 
 import com.suavoz.report.domain.Report;
 import org.springframework.stereotype.Component;

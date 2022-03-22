@@ -35,6 +35,6 @@ public class GenrePersistenceImpl implements GenrePersistenceGateway {
 
     @Override
     public boolean existsById(Long id) {
-        return false;
+        return genreRepository.existsById(id);
     }
 }

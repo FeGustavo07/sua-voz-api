@@ -11,4 +11,6 @@ public interface ViolenceTypePersistenceGateway {
     void delete(ViolenceType violenceType);
 
     List<ViolenceType> findAll();
+
+    boolean existsById(Long id);
 }

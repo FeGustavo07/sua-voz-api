@@ -32,4 +32,9 @@ public class AgeGroupPersistenceImpl implements AgeGroupPersistenceGateway {
     public List<AgeGroup> findAll() {
         return ageGroupRepository.findAll().stream().map(ageGroup -> ageGroup.toDomain(false)).collect(Collectors.toList());
     }
+
+    @Override
+    public boolean existsById(Long id) {
+        return ageGroupRepository.existsById(id);
+    }
 }

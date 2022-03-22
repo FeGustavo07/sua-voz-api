@@ -1,4 +1,4 @@
-package com.suavoz.report.usecases.genreUseCases;
+package com.suavoz.report.usecases.genre;
 
 import com.suavoz.report.domain.Genre;
 import com.suavoz.report.gateways.persistence.GenrePersistenceGateway;
@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CreateGenre {
+public class DeleteGenre {
 
     private final GenrePersistenceGateway genrePersistenceGateway;
 
-    public Genre execute(Genre genre) {
-        return genrePersistenceGateway.save(genre);
+    public void execute(Genre genre) {
+        genrePersistenceGateway.delete(genre);
     }
 }

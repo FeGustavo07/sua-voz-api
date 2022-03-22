@@ -1,4 +1,4 @@
-package com.suavoz.report.usecases.zoneUseCases;
+package com.suavoz.report.usecases.zone;
 
 import com.suavoz.report.domain.Zone;
 import com.suavoz.report.gateways.persistence.ZonePersistenceGateway;
@@ -7,11 +7,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UpdateZone {
+public class CreateZone {
 
     private final ZonePersistenceGateway zonePersistenceGateway;
 
     public Zone execute(Zone zone) {
         return zonePersistenceGateway.save(zone);
     }
+
 }

@@ -1,4 +1,4 @@
-package com.suavoz.report.usecases;
+package com.suavoz.report.usecases.reportUsecases;
 
 import com.suavoz.report.domain.Report;
 import com.suavoz.report.exceptions.ValidationExecption;

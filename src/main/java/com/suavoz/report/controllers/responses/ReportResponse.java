@@ -12,6 +12,7 @@ public class ReportResponse {
 
     private Long id;
     private String description;
+    private String email;
     private AgeGroupResponse ageGroup;
     private GenreResponse genre;
     private ViolenceTypeResponse violenceType;
@@ -20,6 +21,7 @@ public class ReportResponse {
     public ReportResponse(Report report) {
         id = report.getId();
         description = report.getDescription();
+        email = report.getEmail();
         ageGroup = new AgeGroupResponse(report.getAgeGroup());
         genre = new GenreResponse(report.getGenre());
         violenceType = new ViolenceTypeResponse(report.getViolenceType());

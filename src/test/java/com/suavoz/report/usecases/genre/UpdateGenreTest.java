@@ -26,7 +26,7 @@ class UpdateGenreTest {
     CreateAndUpdateGenreValidator createAndUpdateGenreValidator;
 
     @Test
-    void ShouldUpdateWhenValidationSucced() {
+    void ShouldUpdateWhenValidationSucceed() {
         Genre genre = Genre.builder().build();
         Mockito.when(createAndUpdateGenreValidator.validate(genre)).thenReturn(List.of());
         updateGenre.execute(genre);

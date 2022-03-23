@@ -20,6 +20,9 @@ public class ReportEntity {
     @Column(name = "DESCRIPTION")
     private String description;
 
+    @Column(name = "EMAIL")
+    private String email;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ID_AGE_GROUP", referencedColumnName = "ID")
     private AgeGroupEntity ageGroup;
@@ -39,6 +42,7 @@ public class ReportEntity {
     public ReportEntity(Report report){
         id = report.getId();
         description = report.getDescription();
+        email = report.getEmail();
         ageGroup = new AgeGroupEntity(report.getAgeGroup());
         genre = new GenreEntity(report.getGenre());
         violenceType = new ViolenceTypeEntity(report.getViolenceType());
@@ -50,6 +54,7 @@ public class ReportEntity {
         return Report.builder()
                 .id(id)
                 .description(description)
+                .email(email)
                 .violenceType(violenceType.toDomain(false))
                 .ageGroup(ageGroup.toDomain(false))
                 .genre(genre.toDomain(false))

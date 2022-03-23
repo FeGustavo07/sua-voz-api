@@ -13,6 +13,7 @@ public class ReportRequest {
 
     @ApiModelProperty(required = true, value = "Description", example = "Relato de racismo")
     private String description;
+    private String email;
     private AgeGroupRequest ageGroup;
     private GenreRequest genre;
     private ViolenceTypeRequest violenceType;
@@ -21,6 +22,7 @@ public class ReportRequest {
     public Report toDomain() {
         return Report.builder()
                 .description(description)
+                .email(email)
                 .ageGroup(ageGroup.toDomain())
                 .genre(genre.toDomain())
                 .violenceType(violenceType.toDomain())

@@ -26,7 +26,7 @@ class CreateReportTest {
     ReportPersistenceGateway reportPersistenceGateway;
 
     @Test
-    void ShouldSaveWhenValidationSucced() {
+    void ShouldSaveWhenValidationSucceed() {
         Report report = Report.builder().build();
         Mockito.when(createReportValidator.validate(report)).thenReturn(List.of());
         createReport.execute(report);

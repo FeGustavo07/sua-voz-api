@@ -1,7 +1,6 @@
 package com.suavoz.report.usecases.genre;
 
 import com.suavoz.report.domain.Genre;
-import com.suavoz.report.domain.Report;
 import com.suavoz.report.gateways.persistence.GenrePersistenceGateway;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

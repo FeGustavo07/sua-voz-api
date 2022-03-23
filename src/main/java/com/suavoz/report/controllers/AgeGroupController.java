@@ -3,6 +3,8 @@ package com.suavoz.report.controllers;
 import com.suavoz.report.controllers.requests.AgeGroupRequest;
 import com.suavoz.report.controllers.responses.AgeGroupResponse;
 import com.suavoz.report.domain.AgeGroup;
+import com.suavoz.report.gateways.persistence.impl.mysql.AgeGroupPersistenceImpl;
+import com.suavoz.report.gateways.persistence.impl.mysql.entities.AgeGroupEntity;
 import com.suavoz.report.usecases.ageGroup.CreateAgeGroup;
 import com.suavoz.report.usecases.ageGroup.DeleteAgeGroup;
 import com.suavoz.report.usecases.ageGroup.ListAgeGroups;
@@ -23,6 +25,7 @@ public class AgeGroupController {
     private final UpdateAgeGroup updateAgeGroup;
     private final ListAgeGroups listAgeGroups;
     private final DeleteAgeGroup deleteAgeGroup;
+    private final AgeGroupPersistenceImpl ageGroupPersistence;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -47,6 +50,7 @@ public class AgeGroupController {
         List<AgeGroup> ageGroups = listAgeGroups.execute();
         return ageGroups.stream().map(AgeGroupResponse::new).collect(Collectors.toList());
     }
+
 
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
